@@ -1,0 +1,48 @@
+
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Watchlist</h2>
+    {% for listing in listings %}
+    {% if listing.activeStatus%}
+        <div class="flex-container" style="margin-bottom: 30px;">
+            <div style="width: 20%;">
+                {%if listing.imageUrl%}
+                    <a href="{% url 'listing' listing.id%}" ><img src="{{listing.imageUrl}}" style="width: 100%;" alt="{{listing.title}}"></a>
+                {% else %}
+                    <a href="{% url 'listing' listing.id%}"><img style="width: 100%;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png" alt="{{listing.title}}"></a>
+                {% endif %}
+            </div>
+
+            <div style="width: 80%; background-color:#f1f1f1;">
+                <div class="flex-container2">
+                    <div>
+                        <a href="{% url 'listing' listing.id%}" style="color: black"><h3>{{listing.title}}</h3></a>
+                    </div>
+                    <div style="margin-top: 30px;">
+                        <strong>Current Price:</strong> ${{listing.startingBid}}
+                    </div>
+                    <div>
+                        {%if listing.description%}
+                            <strong>Description:</strong> {{listing.description}}
+                        {% else %}
+                            <strong>Description:</strong> N/A
+                        {% endif %}
+                    </div>
+                    <div>
+                        <strong>Created by:</strong> {{listing.user}}
+                    </div>
+                    <div>
+                        <strong>Category:</strong> {{listing.category}}
+                    </div>
+                    <div>
+                        {%if listing.activeStatus is not True%}
+                        <strong>{{winner}}</strong> won the auction.
+                        {% endif %}  
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}    
+{% endfor %}
+{% endblock %}

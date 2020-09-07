@@ -1,0 +1,94 @@
+{% extends "auctions/layout.html"%}
+
+{% block body%}
+<div class="flex-container">
+
+    <div style="width: 40%;">
+        {%if listing.imageUrl%}
+            <a href="{% url 'listing' listing.id%}" ><img src="{{listing.imageUrl}}" style="width: 100%;" alt="{{listing.title}}"></a>
+        {% else %}
+            <a href="{% url 'listing' listing.id%}"><img style="width: 100%;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png" alt="{{listing.title}}"></a>
+        {% endif %}
+    </div>
+
+    <div style="width: 60%; background-color:#f1f1f1;">
+        <div class="flex-container2">
+            <div>
+                <a href="{% url 'listing' listing.id%}" style="color: black"><h3>{{listing.title}}</h3></a>
+            </div>
+            <div style="margin-top: 30px;">
+                <strong>Current Price:</strong> ${{listing.startingBid}}
+            </div>
+            <div>
+                {%if listing.description%}
+                    <strong>Description:</strong> {{listing.description}}
+                {% else %}
+                    <strong>Description:</strong> N/A
+                {% endif %}
+            </div>
+            <div>
+                <strong>Created by:</strong> {{listing.user}}
+            </div>
+            <div>
+                {%if listing.activeStatus is not True%}
+                    {%if winner%}
+                        <strong>{{winner}}</strong> won the auction.
+                    {% endif %}  
+                {% endif %}  
+            </div>
+            <div class="flex-container3" style="margin-top: 20px;">
+                {% if user.is_authenticated %}
+                    <div class="button1">           
+                            <a  href="{% url 'watchlist' listing.id%}" style="color: white; font-size: 17px;">Add to Watchlist</a>
+                    </div>
+                {% endif %}
+                {% if user.is_authenticated %}
+                    <div class="button1">
+                            <a  href="{% url 'watchlistRemove' listing.id%}" style="color: white; font-size: 17px;">Remove from Watchlist</a> 
+                    </div>
+                {% endif %}
+                {% if user.is_authenticated %}
+                    {%if listing.user == user%}
+                        <div class="button1">
+                            <a href="{% url 'closeListing' listing.id%}" style="color: white; font-size: 17px;">Close Listing</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            </div>
+            <div style="margin-top: 25px;">
+                {% if user.is_authenticated %}
+                    {%if listing.user != user%}
+                        {%if listing.activeStatus is True%}
+                            <form action="{% url 'createBid' listing.id %}" method="POST" class="bidAmount"> 
+                                {% csrf_token %}
+                                <input type="number" placeholder="Bid Amount" name="userBid" id="id_userBid" step="0.01" min= {{ listing.startingBid|add:"1" }}>
+                                <input type="submit" value="Bid">
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% if user.is_authenticated %}
+    <h3 style="margin-top: 10px;margin-bottom: 10px; color: rgb(102, 102, 102);">Leave a comment:</h3>
+    <form action="{% url 'comment' listing.id%}" method="POST" > 
+        {% csrf_token %}
+        <textarea name="comment" id="id_comment"></textarea>
+        <input type="submit" value="Comment" style="float: right;">
+    </form>
+{%endif%}
+<h3 style="margin-top: 10px;margin-bottom: 10px; color: rgb(102, 102, 102);">Comments:</h3>
+{% for comment in comments %}
+<div>
+    <div class="comment"><strong>{{comment.user}}:</strong> {{comment.commentContent}}</div>
+</div>
+{% endfor%}
+
+{% endblock%}
+    
+            
+
+
+

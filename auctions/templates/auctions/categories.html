@@ -1,0 +1,11 @@
+
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<h2 style="text-align: center; font-family: Palatino Linotype, Book Antiqua, Palatino, serif;">Categories:</h2>
+    {% for category in categories %}
+        {% if category.categoryName != "None"%}
+            <a href="{% url 'categorizedListings' category.id%}" style="color: rgb(51, 51, 51);text-align: center; font-family: Palatino Linotype, Book Antiqua, Palatino, serif;"><h3  style=" font-size: 25px;">{{category.categoryName}}</h3></a>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

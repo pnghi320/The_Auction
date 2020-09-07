@@ -1,0 +1,260 @@
+
+
+h1{
+    padding: 50px;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    letter-spacing: 20px;
+    text-align: center;
+    text-decoration: none solid rgb(68, 68, 68);
+    text-transform: uppercase;
+    text-shadow: 5px 5px 0 rgb(221, 221, 221);
+    color: black;
+    }
+
+
+.flex-container, .flex-container2, .flex-container3,.flex-container4, .flex-container5{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+.flex-container > div {
+    background: #ccc;
+    padding: 20px;
+}
+
+.flex-container2 > div {
+    color: #797979;
+    width: 100%;
+    font-size: 18px;
+}
+.flex-container4 > div {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+h3{
+    color: #4d4d4d;
+}
+
+body {
+    padding: 40px;
+}
+* {
+    box-sizing: border-box;
+}
+img{
+    border-radius: 20px;
+}
+img:hover{
+    border-radius: 20px;
+    box-shadow: 0px 0px 8px rgb(98, 97, 97);
+}
+a{
+    color: black;
+}
+a:hover{
+    color: black;
+    text-decoration: underline;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.button0:hover{
+    border: 1px solid black;
+    border-radius: 20px 0px 20px 0px;
+    color: rgb(0, 0, 0);
+    text-decoration: none; 
+}
+.button0{
+    padding: 10px;
+    font-size: 15px; 
+    color: rgb(0, 0, 0);
+    text-decoration: none; 
+    border: 1px dashed #000000; 
+    margin-right: 10px;
+    border-radius: 20px 0px 20px 0px;
+}
+
+.button1:hover{
+    border: 0px solid black;
+    text-decoration: none; 
+    background-color:rgb(136, 136, 136);
+    outline: none;
+    box-sizing: border-box;
+}
+.button1{
+    background-color:rgb(163, 163, 163);
+    color: rgb(250, 250, 250);
+    padding: 7px;
+    font-size: 15px; 
+    text-decoration: none; 
+    border-radius: 10px;
+    margin-right: 10px;
+    border: 0px solid  #747474;
+}
+.comment{
+    color: rgb(250, 250, 250);
+    border-radius: 20px 20px 20px 0px;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    margin-bottom: 8px;
+    background: rgb(163, 163, 163);
+    
+}
+
+input[type="submit"]{
+    height: 100%;
+    border: 0px solid  #747474;
+    background-color:rgb(163, 163, 163);
+    color: white;
+    border-radius: 7px;
+    box-sizing: border-box;
+    font-size: 17px;
+}
+input[type="submit"]:hover{
+    color: white;
+    border: 0px solid  #3b3b3b;
+    background-color:rgb(136, 136, 136);
+    outline: none;
+    box-sizing: border-box;
+}
+
+textarea, #id_title, #id_startingBid, #id_url, #id_category{
+    box-shadow: 0px 0px 1px rgb(98, 98, 98);
+    border: 1px solid rgb(97, 97, 97);
+    width: 100%; 
+    border-radius: 5px; 
+}
+.input{
+    width: 80%;
+    margin-bottom: 30px;
+}
+.flex-container5 > div{
+    color: color: #4d4d4d;;
+}
+/*
+body {
+    padding: 20px;
+    }
+* {
+box-sizing: border-box;
+}
+img{
+    border-radius: 20px;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+img:hover{
+    border-radius: 20px;
+    box-shadow: 0px 0px 8px rgb(98, 97, 97);
+}
+a{
+    color: black;
+}
+a:hover{
+    color: rgb(78, 78, 78);
+    text-decoration: underline;
+}
+
+
+.picture{
+align-content: center;
+float: left;
+width: 30%;
+height: 300px; 
+background: #ccc;
+padding: 20px;
+}
+article {
+float: left;
+padding: 20px;
+width: 70%;
+background-color: #f1f1f1;
+height: 300px; 
+}
+
+
+
+
+h1{
+    padding: 50px;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    letter-spacing: 20px;
+    text-align: center;
+    text-decoration: none solid rgb(68, 68, 68);
+    text-transform: uppercase;
+    text-shadow: 5px 5px 0 rgb(221, 221, 221);
+    color: black;
+    }
+.signInAs{
+    font-size: 19px;
+}
+.nav-link:hover{
+    border: 1px solid black;
+    border-radius: 20px 0px 20px 0px;
+    color: rgb(0, 0, 0);
+    text-decoration: none; 
+}
+.nav-link{
+    font-size: 15px; 
+    color: rgb(0, 0, 0);
+    text-decoration: none; 
+    border: 1px dashed #000000; 
+    margin: 5px;
+    border-radius: 20px 0px 20px 0px;
+}
+
+.listingPicture{
+    align-content: center;
+    float: left;
+    width: 50%;
+    height: 500px; 
+    background: #ccc;
+    padding: 20px;
+}
+
+.listingArticle{
+    float: left;
+    padding: 20px;
+    width: 50%;
+    background-color: #f1f1f1;
+    height: 500px; 
+}
+
+.comment{
+    color: rgb(250, 250, 250);
+    border-radius: 20px 0px 20px 0px;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    margin: 10px;
+    background: rgb(163, 163, 163);
+    
+}
+
+
+input[type="submit"] {
+    border: 0.2px solid  #2a2a2a;
+    background-color: #4d4d4d;
+    color: white;
+    border-radius: 3px;
+    font-size: 102%;
+    box-sizing: border-box;
+    font-size: 80%;
+    font-weight: bold;
+}
+input[type="submit"]:hover{
+    color: white;
+    border: 0.2px solid  #1d1d1d;
+    background-color: #444444;
+    outline: none;
+    box-sizing: border-box;
+}
+*/

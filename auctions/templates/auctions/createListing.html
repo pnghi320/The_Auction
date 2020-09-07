@@ -1,0 +1,71 @@
+{% extends "auctions/layout.html" %}
+
+{%block title%}
+Create Listings
+{% endblock %}
+
+
+{% block body %}
+<form action="{% url 'createListing' %}" method="POST"> 
+    {% csrf_token %}
+    <div class="flex-container4">
+        <h2 style="margin-bottom: 20px;">
+            Create a Listing
+        </h2>
+    </div>
+    <div class="flex-container5">
+        <div style="width: 20%;">
+            Title:
+        </div>
+        <div class="input">
+            <input type="text" name="title" id="id_title" maxlength="160">
+        </div>
+    </div>
+    <div class="flex-container5">
+        <div style="width: 20%;">
+            Category:
+        </div>
+        <div class="input">
+            <select name="category" id="id_category" >
+                {% for category in categories %}
+                    <option value="{{category.id}}">{{ category }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="flex-container5">
+        <div style="width: 20%;">
+            Description:
+        </div>
+        <div class="input">
+            <textarea name="description" id="id_description" maxlength="300"></textarea>
+        </div>
+    </div>
+    <div class="flex-container5">
+        <div style="width: 20%;">
+            Starting Bid:
+        </div>
+        <div class="input">
+            <input type="number" name="startingBid" id="id_startingBid" step="0.01" min=0>
+        </div>
+    </div>
+    <div class="flex-container5">
+        <div style="width: 20%;">
+            Image Url:
+        </div>
+        <div class="input">
+            <input type="url" name="url" id="id_url">
+        </div>
+    </div>
+    <div style="float: right;">
+        <input type="submit" >
+    </div>
+    
+
+    
+</form>
+
+    
+    
+
+{% endblock %}
